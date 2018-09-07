@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      html, body {
+        width: 100%;
+      }
+      div {
+        width: 100%;
+        word-break: break-all;
+      }
+      .item {
+        margin: 0 5px;
+        padding: 0 10px;
+        background: orange;
+        color: #fff;
+        border: 1px solid #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tosort" class="sort">
+      待排序：<br>
+    </div>
+    <br>
+    <div id="sorted" class="sort">
+      已排序：<br>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js" charset="utf-8"></script>
+    <script src="./quicksort.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    $(function() {
+      var arr = []
+      var n = 30
+      for (var i = 0; i < n; i++) {
+        arr.push(rand(1, n))
+      }
+
+      $('#tosort').append(arr.map(function(item, index) {
+        return '<span class="item">' + item + '</span>'
+      }))
+
+      // in-place 排序
+      quickSort(arr)
+
+      $('#sorted').append(arr.map(function(item, index) {
+        return '<span class="item">' + item + '</span>'
+      }))
+    })
+    </script>
+  </body>
+</html>
