@@ -27,3 +27,11 @@ void swap(int v[], i, j) {
   v[i] = v[j];
   v[j] = temp;
 }
+
+/* scmp: string compare of *p1 and *p2 */
+int scmp(const void *p1, const void *p2) {
+  char *v1, *v2;
+  v1 = *(char **) p1;
+  v2 = *(char **) p2;
+  return strcmp(v1, v2);
+}
